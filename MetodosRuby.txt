@@ -1,0 +1,358 @@
+
+// Imprimien una linea de texto a diferencia
+que el puts al finalizar imprime un salto de linea y el print no.
+puts "Hello World"
+print "there"
+
+// Comentarios 
+# Esto es un comentario en una clase, solo permitido para una linea.
+=begin
+   Esto es para un bloque
+   de comentarios.
+=end
+
+// Declaracion de variable e inclusion en un puts o print. 
+age = 42
+puts "He is #{age} years old"
+
+// Pedir datos, la diferencia es que el gets incluye un salto de linea
+y el .chomp la ignora.
+
+x = gets o x = gets.chomp
+puts x
+
+// para los switch se utiliza case. 
+
+case a
+when 1
+  puts "One"
+when 2
+  puts "Two"
+when 3
+  puts "Three"
+end
+
+o puede hacerse esto: 
+age = 18
+
+case age
+when 1, 2, 3
+  puts "Little baby"
+when 4, 5
+  puts "Child"
+else
+  puts "Not a baby"
+end
+
+// Rangos. Permite imprimir un rango de numero o cadena sin utilizar un ciclo. 
+
+a = (1..7).to_a
+puts a # [1, 2, 3, 4, 5, 6, 7]
+
+age = 42
+
+case age
+when 0..14
+  puts "Child"
+when 15..24
+  puts "Youth"
+when 25..64
+  puts "Adult"
+else
+  puts "Senior"
+end
+
+// For Loops. Se manejan varios casos. 
+
+1) for i in (1..10)
+  puts i
+end
+
+2)  for i in 1..5
+  break if i > 3
+  puts i
+end
+
+3) for i in 0..10
+  next if i %2 == 0
+  puts i
+end
+
+4) x = 0
+loop do
+  puts x
+  x += 1
+  break if x > 10
+end
+
+// Array, declaracion. Un array en Ruby puede incluir cualquier tipo de dato. 
+
+items = ["Apple", "Orange", "Banana"]
+
+arr = [5, "Dave", 15.88, false]
+
+puts arr[0] # 5
+puts arr[1] # "Dave"
+puts arr[-1] # false
+
+- Agregar Elemento a un array 
+
+arr << 8 o arr.push(8)
+puts arr
+
+- Agregar Elemento a un array en una posicion
+
+arr.insert(2, 8) - primer parametro(posicion) & segundo paremtro(dato a ingresar)
+
+- Eliminar elemento de un array
+
+arr = [1, 2, 3]
+arr.pop
+print arr
+# [1, 2]
+
+- Mirar ultimo elemento de un array
+
+Arr.last
+
+
+
+- Eliminar elemento de un array en una posicion
+
+arr = [2, 4, 6, 8]
+arr.delete_at(2) o arr.shift() o arr.shift(2)
+print arr
+# [2, 4, 8]
+
+- Imprimir un rango de posiciones en un array
+
+nums = [6, 3, 8, 7, 9]
+print nums[1..3]
+# [3, 8, 7]
+
+// Combinacion de arrays 
+
+- Union 
+a = [1, 2, 3]
+b = [4, 5]
+
+res = a + b
+print res # [1, 2, 3, 4, 5]
+
+- Interseccion
+a = [1, 2, 3, 4, 5]
+b = [2, 4, 5, 6]
+
+res = a - b
+print res #[1, 3]
+
+- Retornar un array con numeros repetidos
+a = [2, 3, 7, 8]
+b = [2, 7, 9]
+
+print a & b # [2, 7]
+
+- Retornar un array que remueva los duplicados 
+a = [2, 3, 7, 8]
+b = [2, 7, 9]
+
+print a | b # [2, 3, 7, 8, 9]
+
+- Hacer un array al reves. 
+arr = [5, 3, 8]
+res = arr.reverse
+print res # [8, 3, 5]
+
+- Hacerlo al reves permanente
+arr = [1, 2, 3]
+print arr.reverse!
+
+// Metodos Array
+
+array.length or array.size retorna el numero de elementos de un arreglo
+array.sort Regresa un arreglo con los elementos ordenados
+array.uniq retorna un arreglo con los valores dublicados eliminados del arreglo
+array.uniq! Elimina los duplicados en el mismo arreglo
+array.freeze Asegura que el arreglo. Este no pdra ser modicado
+array.include?(obj) Retorna True si obj esta presente en el arreglo, false si es lo contrario
+array.min Retorna el elemento de menor valor
+array.max Retorna el elemento de mayor valor.
+array.squeeze elimina caracteres muy repetidos de un string.
+array.permutation.to_a regresa un array con todas las combinaciones posibles
+
+
+
+- Iteracion en Array
+arr = ["a", "b", "c"]
+for x in arr
+  puts "Value: #{x}"
+end
+
+// iterador each 
+
+arr = [2, 4, 6]
+sum = 0
+arr.each do |x|
+    sum += x
+end
+
+puts sum
+
+- Otro iterador puede ser con numeros o variables. 
+10.times do
+  puts "Hi"
+end
+
+// Metodos para cadenas
+
+text = "I am learning Ruby and it is fun!"
+text.downcase!
+text.upcase
+text.swapcase invierte el tamaño de las letras de un string
+text.capitalize cambia a mayuscula  la primera letra del texto
+
+
+// Nombrar metodos
+def say
+  puts "Hi"
+end
+
+- mezzclar metodos 
+def square(x)
+  x*x
+end
+
+square(4).times {puts "Hi"}
+
+- utilizar metodo como parametro de otro
+
+def add(a, b)
+  a+b
+end
+
+def mult(a, b)
+  a*b
+end
+
+x = mult(add(2, 3), add(4, 7))
+puts x
+# outputs 55
+
+// Variable global
+
+$'name of variable'
+
+// Clases inicializadas 
+
+class Person
+  def initialize
+    puts "Hi there"
+  end
+end
+
+p1 = Person.new
+p2 = Person.new
+
+# Output:
+# "Hi there"
+# "Hi there"
+
+- instanciar clases 
+
+class Person
+  def initialize(name)
+    @name = name
+  end
+end
+
+p1 = Person.new("David")
+p2 = Person.new("Amy")
+
+class Animal
+  @age = 0
+  def initialize(name, age)
+    @name = name
+    @age = age
+  end
+end
+
+ob = Animal.new("Jacky", 3)
+
+// Getter and Setter
+
+- Agregar automaticamente Get and Set
+attr_accessor :'variable name'
+
+//Accesos de las variables en las clases 
+class Person
+  attr_accessor :name, :age
+  def initialize(name, age)
+    @name = name
+    @age = age
+  end
+  def change(n, a)
+    self.name = n
+    self.age = a
+  end
+  def show_info
+    puts "#{self.name} is #{self.age}"
+  end
+end
+
+p = Person.new("David", 28)
+p.change("Bob", 42)
+p.show_info
+
+# outputs "Bob is 42"
+
+//Metodos propios de la clases
+/La clave es usar self en los metodos
+class Person
+  def self.info
+    puts "A Person"
+  end
+end
+
+- Una variable de la clase es creada con doble @
+@@'variable name'
+
+- Variables constante y su acceso
+class Calc
+  PI = 3.14
+end
+
+puts Calc::PI
+# outputs 3.14
+
+- Metodo to_s en una clase 
+class Person
+  def initialize(n, a)
+    @name = n
+    @age = a
+  end
+  def to_s
+    "#{@name} is #{@age} years old."
+  end
+end
+p = Person.new("David", 28)
+puts p
+# outputs: "David is 28 years old."
+
+// Time
+# current time
+t = Time.now
+puts t
+
+# year, month, day
+puts t.year
+puts t.month
+puts t.day
+
+# custom date
+t = Time.new(1988, 6, 10)
+
+# day of week: 0 is Sunday
+puts t.wday
+
+# day of year
+puts t.yday
